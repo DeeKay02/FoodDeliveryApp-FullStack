@@ -5,6 +5,10 @@ require("dotenv").config();
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import passport from "passport";
+
+// Configs
+import googleAuthConfig from "./config/google.config";
 
 // Microservice routes
 import Auth from "./API/Auth";
@@ -16,9 +20,14 @@ const zomato = express();
 
 //Application middlewares
 zomato.use(express.json());
-zomato.use(express.urlencoded({ extended: false }))
+zomato.use(express.urlencoded({ extended: false }));
 zomato.use(cors());
 zomato.use(helmet());
+zomato.use(passport.initialize());
+zomato.use(passport.session());
+
+// Passport Configuration
+googleAuthConfig(passport);
 
 // Application routes
 zomato.use("/auth", Auth);

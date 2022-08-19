@@ -49,4 +49,32 @@ Router.post("/signin", async (req, res) => {
     }
   });
 
+/*
+Route     /google
+Des       Google Signin
+Params    none
+Access    Public
+Method    POST  
+*/
+Router.get("/google", passport.authenticate("google", { 
+  scope: [
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email",
+  ], 
+}));
+
+/*
+Route     /google/callback
+Des       Google Signin CCallback
+Params    none
+Access    Public
+Method    POST  
+*/
+Router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
+  (req, res) => {
+    return res.json({ token: req.session.passport.user.token });
+  }
+);
+
+
 export default Router;
