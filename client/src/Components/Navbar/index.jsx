@@ -38,7 +38,7 @@ const LargeNav = () => {
               className="w-full h-full"
             />
           </div>
-          <div className=" w-3/4 bg-white shadow-md p-3 flex items-center gap-3  border border-gray-200 rounded">
+          <div className=" w-3/4 bg-white p-3 flex items-center gap-3  border border-gray-200 rounded">
             <div className="flex items-center gap-2 border-r-2 border-gray-300 pr-2">
               <span className="text-zomato-400">
                 <HiLocationMarker />
@@ -76,7 +76,7 @@ const LargeNav = () => {
 const Navbar = () => {
   return (
     <>
-      <nav className="p-4 flex bg-white shadow-md w-full items-center">
+      <nav className="p-4 flex bg-white shadow-md lg:shadow-none w-full items-center">
         <MobileNav />
         <LargeNav />
       </nav>
