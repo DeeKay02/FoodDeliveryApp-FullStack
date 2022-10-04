@@ -9,7 +9,7 @@ const HomeLayout = (props) => {
     <>
         <Navbar />
         <FoodTab />
-        <div className="container mx-auto px-4 lg:px-20 ">{props.children}</div>
+        <div className="container mr-20  ml-120 px-4 lg:px-20 ">{props.children}</div>
     </>
   );
 };
