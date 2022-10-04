@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import ReactStars from "react-rating-stars-component";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-// components
+// Components
 import MenuCollection from "../../Components/Restaurant/MenuCollection";
 import MenuSimilarRestaurantcard from "../../Components/Restaurant/MenuSimilarRestaurantCard";
 import { NextArrow, PrevArrow } from "../../Components/CarouselArrow";

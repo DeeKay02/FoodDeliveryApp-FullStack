@@ -2,10 +2,9 @@ import React from "react";
 import { AiOutlineCompass } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 
-// components
+// Components
 import FloatMenuBtn from "../../Components/Restaurant/Order-Online/FloatMenuBtn";
 import MenuListContainer from "../../Components/Restaurant/Order-Online/MenuListContainer";
-import FoodItem from "../../Components/Restaurant/Order-Online/FoodItem";
 import FoodList from "../../Components/Restaurant/Order-Online/FoodList";
 
 const OrderOnline = () => {
@@ -26,19 +25,6 @@ const OrderOnline = () => {
             <section className="flex  h-screen overflow-y-scroll flex-col gap-3 md:gap-5">
                 <FoodList
                     title="Recommended"
-                    items={[
-                        {
-                        price: "1000",
-                        rating: 3,
-                        description: "Tender mutton marinated with Andhra spices and cooked with long grain basmati rice. Served with raita, brinjal curry and bread halwa.",
-                        title: "Andhra Mutton Biryani Family Pack",
-                        image:
-                            "https://b.zmtcdn.com/data/dish_photos/839/62575c08ce26635e3f48b3642805d839.jpg?output-format=webp",
-                        },
-                    ]}
-                />
-                <FoodList
-                    title="Pizza"
                     items={[
                         {
                         price: "1000",
