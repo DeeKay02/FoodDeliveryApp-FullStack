@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 
-// components
+// Components
 import { NextArrow, PrevArrow } from "../CarouselArrow";
 
 const Brand = (props) => {
