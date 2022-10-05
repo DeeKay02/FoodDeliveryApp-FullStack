@@ -14,7 +14,7 @@ import TabContainer from "../Components/Restaurant/Tabs";
 import CartContainer from "../Components/Cart/CartContainer";
 
 // Redux actions
-import { getSpecificRestaurant } from "../Redux/Reducer/restaurant/restaurant.action";
+import { getSpecificRestaurant } from "../Redux/Reducer/Restaurant/restaurant.action";
 import { getImage } from "../Redux/Reducer/Image/Image.action";
 
 const RestaurantLayout = (props) => {
@@ -44,7 +44,7 @@ const RestaurantLayout = (props) => {
     <>
       {" "}
       <RestaurantNavbar />
-      <div className="container mx-auto px-4 lg:px-20 ">
+      <div className="container mx-auto px-4 lg:px-20 pb-10">
       <ImageGrid images={restaurant.images} />
         <RestaurantInfo
           name={restaurant?.name}

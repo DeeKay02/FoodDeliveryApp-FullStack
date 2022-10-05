@@ -1,4 +1,4 @@
-import { GET_USER, AUTH_USER } from "./user.type";
+import { GET_USER, SELF } from "./user.type";
 
 const INITIAL_STATE = {
   user: {},
@@ -12,7 +12,7 @@ const UserReducer = (state = INITIAL_STATE, action) => {
         user: action.payload,
       };
 
-    case AUTH_USER:
+    case SELF:
       return {
         ...state,
         user: action.payload,
