@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineCompass } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 
@@ -7,7 +8,24 @@ import FloatMenuBtn from "../../Components/Restaurant/Order-Online/FloatMenuBtn"
 import MenuListContainer from "../../Components/Restaurant/Order-Online/MenuListContainer";
 import FoodList from "../../Components/Restaurant/Order-Online/FoodList";
 
+// Redux actions
+import { getFoodList } from "../../Redux/Reducer/Food/Food.action";
+
 const OrderOnline = () => {
+  const [menu, setMenu] = useState([]);
+
+  const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    reduxState &&
+      dispatch(getFoodList(reduxState.menu)).then((data) =>
+        setMenu(data.payload.menus.menus)
+      );
+  }, [reduxState]);
+
   return (
     <>
       <div className="w-full h-screen flex">
@@ -23,19 +41,9 @@ const OrderOnline = () => {
                 </h4>
             </div>
             <section className="flex  h-screen overflow-y-scroll flex-col gap-3 md:gap-5">
-                <FoodList
-                    title="Recommended"
-                    items={[
-                        {
-                        price: "1000",
-                        rating: 3,
-                        description: "Tender mutton marinated with Andhra spices and cooked with long grain basmati rice. Served with raita, brinjal curry and bread halwa.",
-                        title: "Andhra Mutton Biryani Family Pack",
-                        image:
-                            "https://b.zmtcdn.com/data/dish_photos/839/62575c08ce26635e3f48b3642805d839.jpg?output-format=webp",
-                        },
-                    ]}
-                />
+              {menu.map((item) => (
+                <FoodList key={item._id} {...item} />
+              ))}
             </section>
         </div>
       </div>
