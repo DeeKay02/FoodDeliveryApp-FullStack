@@ -42,7 +42,7 @@ Router.get("/:_id", async (req, res) => {
         await ValidateRestaurantId(req.query);
 
         const { _id } = req.params;
-        const restaurant = await RestaurantModel.findOne(_id);
+        const restaurant = await RestaurantModel.findById(_id);
         if (!restaurant)
         return res.status(404).json({ error: "Restaurant Not Found" });
 
