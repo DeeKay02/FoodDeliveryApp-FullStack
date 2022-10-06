@@ -15,6 +15,7 @@ import Menu from "./Page/Restaurant/Menu";
 import Photos from "./Page/Restaurant/Photos";
 import Checkout from "./Page/Checkout";
 import RedirectRestaurant from "./Page/Restaurant/Redirect";
+import GoogleAuth from "./Page/GoogleAuth";
 
 // Axios global settings
 if (localStorage.zomatoUser) {
@@ -32,6 +33,7 @@ function App() {
 
       <HomeLayoutHOC path="/:type" exact component={Home} />
       
+      <HomeLayoutHOC path="/google/:token" exact component={GoogleAuth} />
       <RestaurantLayoutHOC
         path="/restaurant/:id/overview"
         exact
