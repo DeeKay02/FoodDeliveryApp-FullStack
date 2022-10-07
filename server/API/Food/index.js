@@ -70,4 +70,17 @@ Router.get("/r/:category", async (req, res) => {
   }
 });
 
+// @Route   POST /food/new
+// @des     add new food record to database
+// @access  PRIVATE
+Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const { foodData } = req.body;
+    const newFood = await FoodModel.create(foodData);
+    return res.json({ foods: newFood });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 export default Router;
