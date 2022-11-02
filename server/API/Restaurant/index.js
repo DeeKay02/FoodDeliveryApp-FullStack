@@ -80,7 +80,7 @@ Router.get("/search", async (req, res) => {
     }
 });
 
-// @Route   POST /restaurants/new
+// @Route   POST /restaurant/new
 // @des     add new restaurant
 // @access  PRIVATE
 Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
@@ -90,6 +90,25 @@ Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
-  });
+});
+
+// @Route   PATCH /restaurant/update
+// @des     update exisitng restaurant data
+// @access  PRIVATE
+Router.patch("/update", passport.authenticate("jwt"), async (req, res) => {
+    try {
+      const updatedRestaurant = await RestaurantModal.findByIdAndUpdate(
+        req.body.retaurantData._id,
+        { $set: req.body.retaurantData },
+        { new: true }
+      );
+      if (!updatedRestaurant)
+        return res.status(404).json({ restaurants: "Restaurant Not Found!!!" });
+  
+      return res.json({ restaurants: updatedRestaurant });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+});
 
 export default Router;
