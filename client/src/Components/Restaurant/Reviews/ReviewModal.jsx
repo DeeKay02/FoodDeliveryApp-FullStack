@@ -149,7 +149,7 @@ export default function ReviewModal({ isOpen, setIsOpen, ...props }) {
                         id="reviewText"
                         placeholder="amazing food"
                         rows="5"
-                        value={reviewData.subject}
+                        defaultValue={reviewData.subject}
                         onChange={handlechange}
                         className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:outline-none focus:border-zomato-400"
                       ></textarea>
