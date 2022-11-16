@@ -2,6 +2,8 @@ import React from "react";
 import { BsShieldLockFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import Razorpay from "razorpay";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Components
 import FoodItem from "../Components/Cart/FoodItem";
@@ -31,7 +33,7 @@ const Checkout = () => {
 
   const payNow = () => {
     let options = {
-      key: "rzp_test_RNvW44vJHiXg1b",
+      key: "rzp_test_zoAaLMzMUjuhft",
       amount:
         reduxStateCart.reduce((acc, curVal) => acc + curVal.totalPrice, 0) *
         100,
@@ -42,7 +44,16 @@ const Checkout = () => {
         "https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png",
 
       handler: () => {
-        alert("Payment Done");
+        toast.success('Payment Successful!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       },
       prefill: {
         name: reduxStateUser.fullname,
@@ -83,6 +94,18 @@ const Checkout = () => {
           Pay Securely <BsShieldLockFill />
         </button>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

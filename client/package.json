@@ -25,6 +25,7 @@
     "react-scripts": "4.0.3",
     "react-simple-image-viewer": "^1.0.0",
     "react-slick": "^0.28.1",
+    "react-toastify": "^9.0.3",
     "react-use": "^17.4.0",
     "redux": "^4.1.1",
     "redux-logger": "^3.0.6",
